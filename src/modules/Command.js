@@ -16,4 +16,4 @@ class Command {
 		this.enabled = config.enabled || true;
 	}
 }
-module.exports = (client) => client.Command = Command;
+export default (client) => client.Command = Command;
