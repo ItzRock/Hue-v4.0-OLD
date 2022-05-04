@@ -23,8 +23,13 @@
 */
 import { Client, Intents } from "discord.js";
 import { config } from "dotenv";
+import fs from "fs";
+
+import log from "./modules/Logger.js";
+import functions from "./handlers/functions.js";
+import modules from "./handlers/modules.js";
+
 config();
-console.log(process.env.TOKEN);
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS],
 	// Parse @everyone and role mentions incase of something goes wrong.
@@ -33,10 +38,20 @@ const client = new Client({
 	}
 });
 
-import logger from "./modules/Logger.js";
-client.logger = logger(client);
+// Get this ready early on.
+client.log = log(client);
 
-//client.functions = require("./handlers/functions.js")(client);
-//client.moduleHandler = require("./handlers/modules.js")(client);
-//import keys from "./config/keys.json";
-//client.login(keys.token);
+client.functions = functions(client);
+client.modules = modules(client);
+
+// Load our events.
+const events = fs.readdirSync("./src/events");
+for(const filename of events){
+	const eventName = filename.split(".")[0];
+	client.warn(`Loading Event: ${eventName}`);
+	const event = (await import(`./events/${filename}`)).default;
+	
+	client.on(eventName, event.bind(null, client));
+}
+
+client.login(process.env.TOKEN);

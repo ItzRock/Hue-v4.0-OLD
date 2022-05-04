@@ -1,18 +1,16 @@
 /* eslint-disable no-undef */
 class Command {
-	constructor(invoke, details, config){
+	constructor(invoke, details, config, data){
 		this.invoke = invoke;
 
 		this.name = details.name;
 		this.aliases = details.aliases || [];
 		this.description = details.description || "This is a standard command with no desciption.";
-		this.usage = details.usage || `${details.name}`;
 		this.category = details.category;
 
-		this.permissionLevel = config.permissionLevel || 0;
-		this.requiredPermissions = config.requiredPermissions;
+		this.slashCommandData = data;
+
 		this.guildOnly = config.guildOnly;
-		this.requiredArguments = config.requiredArguments || 0;
 		this.premium = config.premium || false;
 		this.disableable = config.disableable || true;
 		this.enabled = config.enabled || true;
