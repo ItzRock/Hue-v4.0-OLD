@@ -105,3 +105,4 @@ dist
 
 # Hue v4.0 stuff.
 src/config/keys.json
+src/config/token.env

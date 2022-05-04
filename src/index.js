@@ -21,7 +21,7 @@
     Anthony Stainton (https://github.com/ItzRock)
 
 */
-const { Client, Intents } = require("discord.js");
+import { Client, Intents } from "discord.js";
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS],
 	// Parse @everyone and role mentions incase of something goes wrong.
@@ -29,3 +29,11 @@ const client = new Client({
 		parse: ["everyone", "roles"]
 	}
 });
+
+import logger from "./modules/Logger.js";
+client.logger = logger(client);
+
+//client.functions = require("./handlers/functions.js")(client);
+//client.moduleHandler = require("./handlers/modules.js")(client);
+import keys from "./config/keys.json";
+client.login(keys.token);

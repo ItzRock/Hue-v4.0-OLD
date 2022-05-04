@@ -1,5 +1,6 @@
 {
   "name": "hue-v4.0",
+  "type": "module",
   "version": "4.0.0",
   "description": "Hue is a multi purpose verification bot with moderation commands",
   "main": "src/index.js",
@@ -20,6 +21,9 @@
     "eslint": "^8.14.0"
   },
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "chalk": "^5.0.1",
+    "discord.js": "^13.6.0",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34"
   }
 }
