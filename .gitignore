@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Hue v4.0 stuff.
+src/config/keys.json
