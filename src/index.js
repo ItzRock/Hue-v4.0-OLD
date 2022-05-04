@@ -22,6 +22,9 @@
 
 */
 import { Client, Intents } from "discord.js";
+import { config } from "dotenv";
+config();
+console.log(process.env.TOKEN);
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS],
 	// Parse @everyone and role mentions incase of something goes wrong.
@@ -35,5 +38,5 @@ client.logger = logger(client);
 
 //client.functions = require("./handlers/functions.js")(client);
 //client.moduleHandler = require("./handlers/modules.js")(client);
-import keys from "./config/keys.json";
-client.login(keys.token);
+//import keys from "./config/keys.json";
+//client.login(keys.token);
