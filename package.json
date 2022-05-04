@@ -1,0 +1,25 @@
+{
+  "name": "hue-v4.0",
+  "version": "4.0.0",
+  "description": "Hue is a multi purpose verification bot with moderation commands",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItzRock/Hue-v4.0.git"
+  },
+  "author": "Anthony",
+  "license": "SEE LICENSE IN <filename>",
+  "bugs": {
+    "url": "https://github.com/ItzRock/Hue-v4.0/issues"
+  },
+  "homepage": "https://github.com/ItzRock/Hue-v4.0#readme",
+  "devDependencies": {
+    "eslint": "^8.14.0"
+  },
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}

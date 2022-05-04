@@ -21,4 +21,11 @@
     Anthony Stainton (https://github.com/ItzRock)
 
 */
-const discord = require("discord.js");
+const { Client, Intents } = require("discord.js");
+const client = new Client({
+	intents: [Intents.FLAGS.GUILDS],
+	// Parse @everyone and role mentions incase of something goes wrong.
+	allowedMentions: {
+		parse: ["everyone", "roles"]
+	}
+});
